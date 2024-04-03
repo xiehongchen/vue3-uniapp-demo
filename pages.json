@@ -5,8 +5,29 @@
 			"style": {
 				"navigationBarTitleText": "uni-app"
 			}
+		},
+		{
+			"path" : "pages/my/my",
+			"style" : 
+			{
+				"navigationBarTitleText" : "",
+				"enablePullDownRefresh" : false
+			}
 		}
 	],
+	"tabBar": {
+			"color": "#7A7E83",
+			"selectedColor": "#3cc51f",
+			"borderStyle": "black",
+			"backgroundColor": "#ffffff",
+			"list": [{
+				"pagePath": "pages/index/index",
+				"text": "首页"
+			}, {
+				"pagePath": "pages/my/my",
+				"text": "我的"
+			}]
+	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",

@@ -1,26 +1,34 @@
 <template>
 	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
-			<text class="title">{{title}}</text>
-		</view>
+		<button @click="startRecord">开始录音</button>
+		<button @click="endRecord">停止录音</button>
+		<button @click="playVoice">播放录音</button>
 	</view>
 </template>
 
-<script>
-	export default {
-		data() {
-			return {
-				title: 'Hello'
-			}
-		},
-		onLoad() {
+<script lang="ts" setup>
+import { ref } from 'vue'
+const recorderManager = uni.getRecorderManager()
+const innerAudioContext = uni.createInnerAudioContext()
+const voicePath = ref(null)
+console.log('innerAudioContext', innerAudioContext)
 
-		},
-		methods: {
+// recorderManager.onStop((res) => {
+// 	console.log('res', res)
+// })
 
-		}
-	}
+// 开始录音
+const startRecord = () => {
+	
+}
+// 录音结束
+const endRecord = () => {
+	
+}
+// 播放录音
+const playVoice = () => {
+	
+}
 </script>
 
 <style>
