@@ -1,60 +1,42 @@
 <template>
 	<view class="content">
-		<button @click="startRecord">开始录音</button>
-		<button @click="endRecord">停止录音</button>
-		<button @click="playVoice">播放录音</button>
+		<view class="box" v-if="show">
+			<view class="search">
+				<input class="input" type="text" border/>
+				<button class="button">点击</button>
+			</view>
+			<button @click="changeURL('https://xiehongchen.github.io/ASGL')">青灯古卷</button>
+		</view>
+		<web-view v-else :src="url"></web-view>
 	</view>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-const recorderManager = uni.getRecorderManager()
-const innerAudioContext = uni.createInnerAudioContext()
-const voicePath = ref(null)
-console.log('innerAudioContext', innerAudioContext)
-
-// recorderManager.onStop((res) => {
-// 	console.log('res', res)
-// })
-
-// 开始录音
-const startRecord = () => {
-	
-}
-// 录音结束
-const endRecord = () => {
-	
-}
-// 播放录音
-const playVoice = () => {
-	
+import { ref } from 'vue';
+const show = ref(true)
+const url = ref<String>()
+const changeURL = (value: String) => {
+	url.value = value
+	show.value = false
 }
 </script>
 
 <style>
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
-	}
+.box {
+	padding: 20px;
+}
+.search {
+	display: flex;
+	padding: 5px 0;
+}
+.input {
+	height: 40px;
+	flex: 1;
+	border: 1px solid;
+}
+.button {
+	margin-left: 10px;
+	width: 100px;
+	height: 40px;
+}
 </style>
